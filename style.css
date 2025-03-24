@@ -1,0 +1,84 @@
+/* Google Font for a magical look */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+body {
+  font-family: 'Cinzel Decorative', serif;
+  background-color: #0d0d0d; /* Dark magical background */
+  color: #f8f8f2; /* Light text for contrast */
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* General Container Styling */
+#character-selection, #player-selection, #stats, #game-actions, #enemy-info {
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent */
+  padding: 15px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 223, 0, 0.5); /* Magical glow effect */
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(255, 223, 0, 0.8);
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(45deg, #a83279, #d38312);
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  text-shadow: 1px 1px 3px black;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #d38312, #a83279);
+  transform: scale(1.1);
+}
+
+/* Gold shimmer effect */
+#gold {
+  color: gold;
+  font-weight: bold;
+  text-shadow: 0 0 10px gold;
+}
+
+/* XP & Health */
+#xp {
+  color: lightblue;
+  font-weight: bold;
+}
+
+#player-health, #enemy-health {
+  color: red;
+  font-weight: bold;
+}
+
+/* Enemy Info */
+#enemy-info {
+  border: 2px solid red;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+/* Game Message */
+#game-message {
+  font-size: 1.3em;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #f8f8f2;
+  border-radius: 5px;
+  width: 70%;
+  margin: auto;
+  text-shadow: 2px 2px 5px gold;
+}

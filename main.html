@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Harry Potter RPG</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+
+<body>
+
+  <!-- Character Selection -->
+  <div id="character-selection">
+    <div class="section-title">Select Your House:</div>
+    <button class="house-selection" id="gryffindor">Gryffindor</button>
+    <button class="house-selection" id="slytherin">Slytherin</button>
+    <button class="house-selection" id="ravenclaw">Ravenclaw</button>
+    <button class="house-selection" id="hufflepuff">Hufflepuff</button>
+  </div>
+
+  <div id="player-selection">
+    <div class="section-title">Select Your Character:</div>
+    <button class="character-selection" id="harry">Harry Potter</button>
+    <button class="character-selection" id="hermione">Hermione Granger</button>
+    <button class="character-selection" id="ron">Ron Weasley</button>
+    <button class="character-selection" id="draco">Draco Malfoy</button>
+  </div>
+
+  <button id="start-game">Start Game</button>
+
+  <!-- Player Stats -->
+  <div id="stats">
+    <span class="stat">XP: <strong id="xp">0</strong></span>
+    <span class="stat">Health: <strong id="player-health">100</strong></span>
+    <span class="stat">Gold: <strong id="gold">50</strong></span>
+  </div>
+
+  <!-- Game Actions -->
+  <div id="game-actions">
+    <button id="shop-btn">Go to Shop</button>
+    <button id="fight-btn">Fight Enemy</button>
+    <button id="spell-btn">Use Spell</button>
+  </div>
+
+  <!-- Enemy Stats -->
+  <div id="enemy-info">
+    <span class="stat">Monster: <strong id="enemy-name">None</strong></span>
+    <span class="stat">Health: <strong id="enemy-health">0</strong></span>
+  </div>
+
+  <div id="game-message">Welcome to Hogwarts! Choose your house and character to begin.</div>
+
+  <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+
+</html>
