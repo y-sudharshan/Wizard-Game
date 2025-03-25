@@ -24,8 +24,15 @@
 
     <div id="game-interface" style="display: none;">
         <h2>Game Interface</h2>
-        <button onclick="openShop()">Shop</button>
+        <div id="stats">
+            <p id="player-health">Health: 100</p>
+            <p id="gold">Gold: 50</p>
+            <p id="xp">XP: 0</p>
+        </div>
+        <button onclick="openShop()">Buy Spells</button>
         <button onclick="castSpell('Expelliarmus')">Fight Enemy</button>
+        <button onclick="sellItems()">Sell Items</button>
+        <div id="shop-container"></div>
     </div>
 
     <div id="game-message"></div>

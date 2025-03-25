@@ -66,15 +66,33 @@ function selectHouse(house) {
 
 // Shop Functionality
 function openShop() {
-    let shopContent = "Available Spells:<br>";
+    let shopContainer = document.getElementById("shop-container");
+    shopContainer.innerHTML = ""; // Clear previous shop content
+
     for (let spell in shopSpells) {
         let cost = shopSpells[spell].cost;
-        if (houseDiscounts[selectedHouse] && houseDiscounts[selectedHouse][spell]) {
-            cost -= cost * houseDiscounts[selectedHouse][spell];
-        }
-        shopContent += `${spell}: ${cost} gold<br>`;
+        let discount = houseDiscounts[selectedHouse] && houseDiscounts[selectedHouse][spell]
+            ? houseDiscounts[selectedHouse][spell]
+            : 0;
+        let finalCost = cost - (cost * discount);
+
+        let button = document.createElement("button");
+        button.textContent = `${spell} - ${finalCost} gold`;
+        button.onclick = () => purchaseSpell(spell, finalCost);
+        shopContainer.appendChild(button);
     }
-    setMessage(shopContent);
+}
+
+// Purchase Spell
+function purchaseSpell(spellName, cost) {
+    if (player.gold < cost) {
+        setMessage("Not enough gold to purchase this spell!");
+        return;
+    }
+
+    player.gold -= cost; // Deduct the cost from player's gold
+    setMessage(`You purchased ${spellName}!`);
+    updateUI();
 }
 
 // Attack Function
@@ -85,14 +103,18 @@ function castSpell(spellName) {
     }
 
     let spell = spells[spellName];
+    let discount = houseDiscounts[selectedHouse] && houseDiscounts[selectedHouse][spellName] 
+        ? houseDiscounts[selectedHouse][spellName] 
+        : 0;
+    let finalCost = spell.cost - (spell.cost * discount);
 
-    if (player.gold < spell.cost) {
+    if (player.gold < finalCost) {
         setMessage("Not enough gold!");
         return;
     }
 
-    player.gold -= spell.cost;
-    
+    player.gold -= finalCost;
+
     if (spell.shield) {
         setMessage(`You cast ${spellName} and gained ${spell.shield} shield points!`);
         player.health += spell.shield;
@@ -107,6 +129,19 @@ function castSpell(spellName) {
         enemyAttack();
     }
 
+    updateUI();
+}
+
+// Sell Items Functionality
+function sellItems() {
+    if (player.xp < 10) {
+        setMessage("You need at least 10 XP to sell items!");
+        return;
+    }
+
+    player.gold += 10; // Add gold for selling items
+    player.xp -= 10; // Deduct XP for selling
+    setMessage("You sold items and earned 10 gold!");
     updateUI();
 }
 
