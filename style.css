@@ -8,6 +8,10 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  background-image: url('hogwarts-palace.jpg'); /* Add Hogwarts palace background */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 /* General Container Styling */
@@ -81,4 +85,25 @@ button:hover {
   width: 70%;
   margin: auto;
   text-shadow: 2px 2px 5px gold;
+}
+
+/* Character and House Selection */
+#character-selection, #house-selection {
+  background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  color: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Shop and Game Interface */
+#shop, #game-interface {
+  background: rgba(0, 0, 0, 0.8); /* Darker transparent background */
+  padding: 20px;
+  margin: 20px auto;
+  width: 70%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Green glow for magical effect */
 }

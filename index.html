@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="character-selection">
+        <h2>Select Your Character</h2>
+        <button onclick="selectCharacter('Harry')">Harry</button>
+        <button onclick="selectCharacter('Hermione')">Hermione</button>
+        <button onclick="selectCharacter('Ron')">Ron</button>
+    </div>
+
+    <div id="house-selection" style="display: none;">
+        <h2>Select Your House</h2>
+        <button onclick="selectHouse('Gryffindor')">Gryffindor</button>
+        <button onclick="selectHouse('Slytherin')">Slytherin</button>
+        <button onclick="selectHouse('Ravenclaw')">Ravenclaw</button>
+        <button onclick="selectHouse('Hufflepuff')">Hufflepuff</button>
+    </div>
+
+    <div id="game-interface" style="display: none;">
+        <h2>Game Interface</h2>
+        <button onclick="openShop()">Shop</button>
+        <button onclick="castSpell('Expelliarmus')">Fight Enemy</button>
+    </div>
+
+    <div id="game-message"></div>
+
+    <script src="logic.js"></script>
+</body>
+</html>

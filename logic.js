@@ -13,6 +13,25 @@ let player = {
 };
 
 let enemy = null; // Enemy will be assigned dynamically
+let selectedCharacter = null;
+let selectedHouse = null;
+
+// House-specific discounts
+const houseDiscounts = {
+    "Gryffindor": { "Expelliarmus": 0.2 },
+    "Slytherin": { "Snake Tongue": 0.3 },
+    "Ravenclaw": { "Stupefy": 0.2 },
+    "Hufflepuff": { "Protego": 0.2 }
+};
+
+// Shop Spells
+const shopSpells = {
+    "Expelliarmus": { cost: 10 },
+    "Stupefy": { cost: 15 },
+    "Avada Kedavra": { cost: 50 },
+    "Protego": { cost: 5 },
+    "Snake Tongue": { cost: 25 }
+};
 
 // Enemy Hierarchy
 const enemies = [
@@ -28,6 +47,34 @@ function startGame() {
     player.xp = 0;
     enemy = enemies[0]; // Start with first enemy
     updateUI();
+}
+
+// Character Selection
+function selectCharacter(character) {
+    selectedCharacter = character;
+    document.getElementById("house-selection").style.display = "block";
+    document.getElementById("character-selection").style.display = "none";
+}
+
+// House Selection
+function selectHouse(house) {
+    selectedHouse = house;
+    document.getElementById("game-interface").style.display = "block";
+    document.getElementById("house-selection").style.display = "none";
+    setMessage(`Welcome to ${house}!`);
+}
+
+// Shop Functionality
+function openShop() {
+    let shopContent = "Available Spells:<br>";
+    for (let spell in shopSpells) {
+        let cost = shopSpells[spell].cost;
+        if (houseDiscounts[selectedHouse] && houseDiscounts[selectedHouse][spell]) {
+            cost -= cost * houseDiscounts[selectedHouse][spell];
+        }
+        shopContent += `${spell}: ${cost} gold<br>`;
+    }
+    setMessage(shopContent);
 }
 
 // Attack Function
@@ -110,4 +157,8 @@ function setMessage(msg) {
 }
 
 // Initialize the game
-document.addEventListener("DOMContentLoaded", startGame);
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("character-selection").style.display = "block";
+    document.getElementById("house-selection").style.display = "none";
+    document.getElementById("game-interface").style.display = "none";
+});
