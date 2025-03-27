@@ -113,7 +113,7 @@ function castSpell(spellName) {
         return;
     }
 
-    player.gold -= finalCost;
+    let spell = spells[spellName];
 
     if (spell.shield) {
         setMessage(`You cast ${spellName} and gained ${spell.shield} shield points!`);
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("fight-btn").addEventListener("click", () => {
     if (!enemy) {
         setMessage("No enemy to fight!");
-        return;
+        return; 
     }
     document.getElementById("fight-interface").style.display = "block";
     document.getElementById("fight-enemy-name").textContent = enemy.name;
