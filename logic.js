@@ -197,3 +197,31 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("house-selection").style.display = "none";
     document.getElementById("game-interface").style.display = "none";
 });
+
+// Show Fight Interface
+document.getElementById("fight-btn").addEventListener("click", () => {
+    if (!enemy) {
+        setMessage("No enemy to fight!");
+        return;
+    }
+    document.getElementById("fight-interface").style.display = "block";
+    document.getElementById("fight-enemy-name").textContent = enemy.name;
+    document.getElementById("fight-enemy-health").textContent = enemy.health;
+});
+
+// Cast Spell from Input
+document.getElementById("cast-spell-btn").addEventListener("click", () => {
+    const spellName = document.getElementById("spell-input").value.trim();
+    if (!shopSpells[spellName]) {
+        setMessage("Invalid spell! You can only use purchased spells.");
+        return;
+    }
+
+    if (!spells[spellName]) {
+        setMessage("You don't own this spell!");
+        return;
+    }
+
+    castSpell(spellName);
+    document.getElementById("spell-input").value = ""; // Clear input field
+});

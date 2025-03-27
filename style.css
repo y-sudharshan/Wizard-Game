@@ -105,4 +105,16 @@ button:hover {
   margin: 20px auto;
   width: 70%;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Green glow for magical effect
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Green glow for magical effect */
+}
+
+/* Fight Interface */
+#fight-interface {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  margin: 20px auto;
+  width: 70%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  color: white;
+}
