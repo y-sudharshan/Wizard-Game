@@ -8,10 +8,11 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background-image: url('hogwarts-palace.jpg'); /* Add Hogwarts palace background */
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  background-image: url('hogwarts-palace.jpg'); /* Ensure the image path is correct */
+  background-repeat: no-repeat; /* Prevent tiling */
+  background-size: cover; /* Cover the entire viewport */
+  background-attachment: fixed; /* Keep the background fixed during scrolling */
+  background-position: center; /* Center the image */
 }
 
 /* General Container Styling */
